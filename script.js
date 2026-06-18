@@ -1,172 +1,157 @@
 /* ============================================================
    BRONCES REY — script.js
    ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --- NAVBAR: scroll shadow + sticky tras topbar --- */
+  /* ── NAVBAR SCROLL SHADOW ── */
   const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
 
-  function onScroll() {
-    navbar.classList.toggle('scrolled', window.scrollY > 10);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  /* --- HAMBURGER / MENÚ MÓVIL --- */
+  /* ── HAMBURGER / MENÚ MÓVIL ── */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
 
   hamburger?.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     hamburger.classList.toggle('active', open);
-    hamburger.setAttribute('aria-expanded', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
 
-  // Cierra menú al hacer clic en un enlace
-  navLinks?.querySelectorAll('a').forEach(link => {
+  navLinks?.querySelectorAll('a').forEach(link =>
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       hamburger?.classList.remove('active');
       hamburger?.setAttribute('aria-expanded', 'false');
-    });
-  });
+    })
+  );
 
-  // Cierra menú al hacer clic fuera
   document.addEventListener('click', (e) => {
     if (navLinks?.classList.contains('open') &&
-        !navLinks.contains(e.target) &&
-        !hamburger.contains(e.target)) {
+        !navLinks.contains(e.target) && !hamburger?.contains(e.target)) {
       navLinks.classList.remove('open');
       hamburger?.classList.remove('active');
     }
   });
 
-  /* --- GOLD DIVIDER ANIMADO --- */
-  const goldDivider = document.getElementById('gold-divider');
+  /* ── HERO SLIDER ── */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.dot');
+  let current  = 0;
+  let sliderTimer;
 
-  const dividerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        goldDivider.classList.add('visible');
-        dividerObserver.disconnect();
-      }
+  function goTo(idx) {
+    slides[current]?.classList.remove('active');
+    dots[current]?.classList.remove('active');
+    current = idx;
+    slides[current]?.classList.add('active');
+    dots[current]?.classList.add('active');
+  }
+
+  function nextSlide() { goTo((current + 1) % slides.length); }
+
+  function startSlider() {
+    sliderTimer = setInterval(nextSlide, 4500);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(sliderTimer);
+      goTo(Number(dot.dataset.idx));
+      startSlider();
     });
-  }, { threshold: 0.5 });
-
-  if (goldDivider) dividerObserver.observe(goldDivider);
-
-  /* --- ANIMACIONES DE ENTRADA (data-animate) --- */
-  const animatedEls = document.querySelectorAll('[data-animate]');
-
-  const animObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Escalonado suave si hay varios en el mismo contenedor
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        animObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  animatedEls.forEach((el, i) => {
-    // Asigna pequeño delay escalonado a cards dentro de grids
-    const parent = el.parentElement;
-    if (parent?.classList.contains('services-grid') ||
-        parent?.classList.contains('stats-container') ||
-        parent?.classList.contains('about-values')) {
-      el.dataset.delay = i * 80;
-    }
-    animObserver.observe(el);
   });
 
-  /* --- CONTADOR ANIMADO DE STATS --- */
-  const statNumbers = document.querySelectorAll('.stat-number');
+  if (slides.length > 1) startSlider();
 
-  function animateCounter(el) {
+  /* ── ANIMACIONES DE ENTRADA ── */
+  const animEls = document.querySelectorAll('[data-animate]');
+  const animObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      const parent = entry.target.parentElement;
+      const isBulk = parent?.classList.contains('products-grid') ||
+                     parent?.classList.contains('srv-grid') ||
+                     parent?.classList.contains('cat-grid');
+      const siblings = isBulk ? [...parent.children].indexOf(entry.target) : 0;
+      setTimeout(() => entry.target.classList.add('visible'), siblings * 70);
+      animObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+
+  animEls.forEach(el => animObs.observe(el));
+
+  /* ── CONTADORES ANIMADOS ── */
+  function animCount(el) {
     const target = parseInt(el.dataset.target, 10);
-    const duration = 1800;
-    const startTime = performance.now();
-
-    function step(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Easing: ease-out cubic
-      const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(ease * target);
-      if (progress < 1) requestAnimationFrame(step);
+    const dur    = 1600;
+    const start  = performance.now();
+    const step   = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      el.textContent = Math.floor(e * target);
+      if (p < 1) requestAnimationFrame(step);
       else el.textContent = target;
-    }
-
+    };
     requestAnimationFrame(step);
   }
 
-  const counterObserver = new IntersectionObserver((entries) => {
+  const counters = document.querySelectorAll('.ns-n[data-target]');
+  const cntObs   = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      animCount(entry.target);
+      cntObs.unobserve(entry.target);
     });
   }, { threshold: 0.5 });
+  counters.forEach(el => cntObs.observe(el));
 
-  statNumbers.forEach(el => counterObserver.observe(el));
-
-  /* --- SMOOTH SCROLL para anclas internas --- */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-
-      const navH = navbar?.offsetHeight || 72;
-      const top  = target.getBoundingClientRect().top + window.scrollY - navH - 12;
+      const offset = (navbar?.offsetHeight || 68) + 12;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
-  /* --- FORMULARIO DE CONTACTO --- */
-  const form        = document.getElementById('contact-form');
-  const formSuccess = document.getElementById('form-success');
+  /* ── ACTIVE NAV LINK ── */
+  const sections   = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links > a');
+  const secObs     = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navAnchors.forEach(a =>
+        a.classList.toggle('active-link', a.getAttribute('href') === `#${entry.target.id}`)
+      );
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => secObs.observe(s));
+
+  /* ── FORMULARIO ── */
+  const form   = document.getElementById('contact-form');
+  const formOk = document.getElementById('form-ok');
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Enviando…';
-    btn.disabled = true;
+    btn.disabled    = true;
 
-    // Simula envío (reemplazar con fetch real a backend/formspree/etc.)
+    // Reemplazar con fetch real a backend / Formspree / EmailJS
     setTimeout(() => {
-      formSuccess?.classList.add('show');
+      formOk?.classList.add('show');
       form.reset();
       btn.textContent = 'Enviar consulta';
-      btn.disabled = false;
-
-      // Oculta el mensaje de éxito tras 5 segundos
-      setTimeout(() => formSuccess?.classList.remove('show'), 5000);
+      btn.disabled    = false;
+      setTimeout(() => formOk?.classList.remove('show'), 5000);
     }, 1000);
   });
-
-  /* --- ACTIVE NAV LINK según sección visible --- */
-  const sections = document.querySelectorAll('section[id]');
-  const navAnchors = document.querySelectorAll('.nav-links > a');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navAnchors.forEach(a => {
-          a.classList.toggle('active-link', a.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-
-  sections.forEach(s => sectionObserver.observe(s));
 
 });
