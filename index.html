@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bronces Rey | Servicios Industriales</title>
+  <meta name="description" content="Más de 60 años de experiencia en la industria metalúrgica chilena. Corte láser, soldadura MIG, galvanoplastia y más." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>📞 +56 2 2266 5300</span>
+    <span>Lunes a Viernes · 8:30 – 17:30</span>
+    <span>Av. Salvador Allende N°28, San Joaquín</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://broncesrey.cl/wp-content/uploads/2024/06/Logo-Bronces-Rey-01.png" alt="Bronces Rey" />
+      </a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#inicio">Inicio</a>
+        <div class="dropdown">
+          <a href="#servicios" class="dropdown-toggle">Servicios <span class="arrow">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="#corte-laser">Corte Láser</a>
+            <a href="#estructuras">Estructuras Metálicas</a>
+            <a href="#pintura">Pintura Electrostática</a>
+            <a href="#torneado">Torneado y Mecanizado</a>
+            <a href="#galvanoplastia">Galvanoplastia</a>
+          </div>
+        </div>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#contacto" class="btn-primary">Cotizar</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-overlay"></div>
+    <video class="hero-video" autoplay muted loop playsinline poster="https://broncesrey.cl/wp-content/uploads/2024/06/banner.mp4">
+      <source src="https://broncesrey.cl/wp-content/uploads/2024/06/banner.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content" data-animate>
+      <p class="hero-eyebrow">Desde 1962 · Industria Metalúrgica Chilena</p>
+      <h1>Fabricamos con<br /><span class="gold">precisión y orgullo.</span></h1>
+      <p class="hero-sub">Bronces, fierro, aluminio, corte láser y acabados de excelencia para sus proyectos industriales.</p>
+      <div class="hero-actions">
+        <a href="#servicios" class="btn-primary">Ver Servicios</a>
+        <a href="#nosotros" class="btn-outline">Quiénes somos</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- GOLD DIVIDER -->
+  <div class="gold-divider" id="gold-divider"></div>
+
+  <!-- STATS BANNER -->
+  <section class="stats-banner">
+    <div class="stats-container">
+      <div class="stat" data-animate>
+        <span class="stat-number" data-target="60">0</span><span class="stat-unit">+</span>
+        <p>años de experiencia</p>
+      </div>
+      <div class="stat" data-animate>
+        <span class="stat-number" data-target="1700">0</span><span class="stat-unit">m²</span>
+        <p>de planta industrial</p>
+      </div>
+      <div class="stat" data-animate>
+        <span class="stat-number" data-target="5">0</span><span class="stat-unit"></span>
+        <p>servicios especializados</p>
+      </div>
+      <div class="stat" data-animate>
+        <span class="stat-number" data-target="100">0</span><span class="stat-unit">%</span>
+        <p>hecho en Chile</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div class="section-header" data-animate>
+      <p class="section-eyebrow">Lo que hacemos</p>
+      <h2>Nuestros Servicios</h2>
+      <p class="section-sub">Soluciones industriales de alta precisión para sus proyectos.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <article class="service-card" id="corte-laser" data-animate>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M6 42L42 6M6 6l36 36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2.5"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-body">
+          <h3>Corte Láser</h3>
+          <p>Precisión y versatilidad para sus proyectos en acero, aluminio y otros materiales. Cortes complejos con tolerancias mínimas y acabados impecables.</p>
+          <ul>
+            <li>Alta precisión dimensional</li>
+            <li>Variedad de materiales</li>
+            <li>Tiempos de entrega óptimos</li>
+          </ul>
+          <a href="#contacto" class="service-link">Cotizar servicio →</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="estructuras" data-animate>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><rect x="4" y="20" width="40" height="6" rx="2" stroke="currentColor" stroke-width="2.5"/><rect x="10" y="8" width="6" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/><rect x="32" y="8" width="6" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/><path d="M16 12h16M16 36h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-body">
+          <h3>Estructuras Metálicas y Soldadura MIG</h3>
+          <p>Fabricación de estructuras metálicas robustas y soldadura MIG de alta calidad. La solidez de su proyecto garantizada por décadas de experiencia.</p>
+          <ul>
+            <li>Soldadura de alta resistencia</li>
+            <li>Diseño estructural a medida</li>
+            <li>Control de calidad exhaustivo</li>
+          </ul>
+          <a href="#contacto" class="service-link">Cotizar servicio →</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="pintura" data-animate>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M8 40c4-4 8-2 12-4s6-8 6-8l14-18-4-4L18 20s-6 2-8 6-2 8-2 14z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><circle cx="36" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M22 26l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-body">
+          <h3>Pintura Electrostática</h3>
+          <p>Capa de protección y belleza para sus piezas metálicas. Acabado uniforme, resistente a la corrosión y de larga duración en todos sus productos.</p>
+          <ul>
+            <li>Cobertura uniforme total</li>
+            <li>Alta resistencia a corrosión</li>
+            <li>Amplia gama de colores</li>
+          </ul>
+          <a href="#contacto" class="service-link">Cotizar servicio →</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="torneado" data-animate>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2.5"/><circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="2"/><path d="M24 6v4M24 38v4M6 24h4M38 24h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14.1 14.1l2.8 2.8M31.1 31.1l2.8 2.8M14.1 33.9l2.8-2.8M31.1 16.9l2.8-2.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-body">
+          <h3>Torneado y Mecanizado de Precisión</h3>
+          <p>Alta calidad y precisión en cada pieza. Torneado CNC y mecanizado para piezas únicas y series, con tolerancias ajustadas a las exigencias más estrictas.</p>
+          <ul>
+            <li>Torneado CNC avanzado</li>
+            <li>Tolerancias de alta precisión</li>
+            <li>Piezas únicas y en serie</li>
+          </ul>
+          <a href="#contacto" class="service-link">Cotizar servicio →</a>
+        </div>
+      </article>
+
+      <article class="service-card" id="galvanoplastia" data-animate>
+        <div class="service-icon">
+          <svg viewBox="0 0 48 48" fill="none"><path d="M8 36c0-6 4-10 8-12l8-4 8 4c4 2 8 6 8 12H8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 20V8M18 12l6-6 6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 38h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="service-body">
+          <h3>Galvanoplastia</h3>
+          <p>Protección y belleza para sus piezas metálicas mediante recubrimiento electroquímico. Cromado, niquelado y dorado para mayor durabilidad y estética.</p>
+          <ul>
+            <li>Cromado y niquelado</li>
+            <li>Protección anti-corrosión</li>
+            <li>Acabado espejo disponible</li>
+          </ul>
+          <a href="#contacto" class="service-link">Cotizar servicio →</a>
+        </div>
+      </article>
+
+      <!-- CTA card -->
+      <div class="service-card service-cta" data-animate>
+        <div class="cta-inner">
+          <h3>¿Necesita un servicio personalizado?</h3>
+          <p>Cotice directamente con nuestro equipo de expertos. Respuesta en menos de 24 horas hábiles.</p>
+          <a href="#contacto" class="btn-primary">Contactar ahora</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="nosotros">
+    <div class="about-grid">
+      <div class="about-image-block" data-animate>
+        <div class="about-img-main">
+          <img src="https://broncesrey.cl/wp-content/uploads/2024/06/Logo-Bronces-Rey-01.png" alt="Bronces Rey Planta Industrial" class="about-logo-large" />
+          <div class="about-badge">
+            <span class="badge-number">1962</span>
+            <span class="badge-label">Fundación</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text" data-animate>
+        <p class="section-eyebrow">Quiénes somos</p>
+        <h2>El corazón de la industria metalúrgica chilena</h2>
+        <p>Bronces Rey nació el 2 de noviembre de 1962 con la pasión por moldear el metal en piezas de excelencia. Desde sus inicios en una planta de 1.700 m², hemos forjado una trayectoria sólida como referente en la fabricación de productos de bronce, fierro estampado, corte láser e inyección de aluminio, zamac y plástico.</p>
+        <p>Hoy somos una empresa con más de seis décadas de historia, comprometida con la innovación tecnológica y la calidad en cada pieza que fabricamos para la industria chilena.</p>
+        <div class="about-values">
+          <div class="value-item">
+            <span class="value-icon">⚙️</span>
+            <div>
+              <strong>Precisión</strong>
+              <p>Tolerancias mínimas en cada proceso</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">🏅</span>
+            <div>
+              <strong>Calidad</strong>
+              <p>Estándares exigentes en toda la producción</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-icon">🇨🇱</span>
+            <div>
+              <strong>Hecho en Chile</strong>
+              <p>Orgullo y compromiso con la industria local</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" data-animate>
+    <div class="cta-banner-content">
+      <h2>Resuelva sus dudas y cotice con nosotros</h2>
+      <p>Contáctenos por cualquiera de nuestros canales. Atención personalizada de lunes a viernes.</p>
+      <div class="cta-banner-actions">
+        <a href="https://api.whatsapp.com/send/?phone=56971359731" target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:contacto@broncesrey.cl" class="btn-outline-dark">Enviar correo</a>
+        <a href="tel:+56222665300" class="btn-outline-dark">Llamar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="contact-grid">
+      <div class="contact-info" data-animate>
+        <p class="section-eyebrow">Contáctenos</p>
+        <h2>Estamos aquí para ayudarle</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Dirección</strong>
+              <p>Av. Salvador Allende N°28, San Joaquín, Santiago</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <p><a href="tel:+56222665300">+56 2 2266 5300</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <strong>Horario</strong>
+              <p>Lunes a Viernes · 8:30 – 17:30 hrs</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <p><a href="https://api.whatsapp.com/send/?phone=56971359731" target="_blank" rel="noopener">+56 9 7135 9731</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" data-animate id="contact-form">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" required />
+        </div>
+        <div class="form-group">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa" />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="correo@empresa.cl" required />
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio" name="servicio">
+            <option value="">Seleccione un servicio</option>
+            <option value="corte-laser">Corte Láser</option>
+            <option value="estructuras">Estructuras Metálicas y Soldadura MIG</option>
+            <option value="pintura">Pintura Electrostática</option>
+            <option value="torneado">Torneado y Mecanizado</option>
+            <option value="galvanoplastia">Galvanoplastia</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describa su proyecto o consulta..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary btn-full">Enviar consulta</button>
+        <div class="form-success" id="form-success">✅ ¡Mensaje enviado! Le contactaremos pronto.</div>
+      </form>
+    </div>
+
+    <!-- Map embed -->
+    <div class="map-container">
+      <iframe
+        src="https://maps.google.com/maps?q=Av.%20Salvador%20Allende%20N%C2%B028%2C%20San%20Joaqu%C3%ADn&t=m&z=15&output=embed&iwloc=near"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Ubicación Bronces Rey"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://broncesrey.cl/wp-content/uploads/2024/06/Logo-Bronces-Rey-01.png" alt="Bronces Rey" />
+        <p>Fabricamos con pasión y precisión desde 1962. Referentes en la industria metalúrgica chilena.</p>
+        <div class="footer-social">
+          <a href="https://api.whatsapp.com/send/?phone=56971359731" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#corte-laser">Corte Láser</a></li>
+          <li><a href="#estructuras">Estructuras Metálicas</a></li>
+          <li><a href="#pintura">Pintura Electrostática</a></li>
+          <li><a href="#torneado">Torneado y Mecanizado</a></li>
+          <li><a href="#galvanoplastia">Galvanoplastia</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#contacto">Cotizar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ubicación y Horario</h4>
+        <p>Av. Salvador Allende N°28<br />San Joaquín, Santiago</p>
+        <p class="footer-hours">Lunes a Viernes<br />8:30 – 17:30 hrs</p>
+        <p><a href="tel:+56222665300">+56 2 2266 5300</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Bronces Rey · Todos los derechos reservados</p>
+      <p>Sitio web desarrollado por <a href="https://utips.cl" target="_blank" rel="noopener">Utips.cl</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
